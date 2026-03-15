@@ -16,7 +16,6 @@ function firstNonRepeatingClassic(strValue) {
     }
     return null;
 }
-console.log(firstNonRepeatingClassic("swiss"));
 
 // Solution 2 — Frequency counter (object)
 function firstNonRepeatingFrequency(strValue) {
@@ -38,11 +37,16 @@ function firstNonRepeatingFrequency(strValue) {
     }
     return null;
 }
-console.log(firstNonRepeatingFrequency("swiss"));
 
 // Solution 3 — Using array methods
 function firstNonRepeatingMethods(strValue) {
     const result = strValue.split("").find(char => strValue.indexOf(char) === strValue.lastIndexOf(char));
     return result ? `The first letter not repeating is: ${result}` : null; 
 }
-console.log(firstNonRepeatingMethods("swiss"));
+
+module.exports = {
+  firstNonRepeatingClassic,
+  firstNonRepeatingFrequency,
+  firstNonRepeatingMethods
+};
+
