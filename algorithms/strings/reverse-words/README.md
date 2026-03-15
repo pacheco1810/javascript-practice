@@ -2,90 +2,147 @@
 
 This exercise implements different approaches to reverse the characters of each word in a string while keeping the original word order.
 
-## Problem
+---
+
+# Problem
 
 Given a string containing multiple words separated by spaces, return a new string where each word is reversed individually.
 
 ### Example
 
 Input:
-"hello world"
 
+```
+"hello world"
+```
 
 Output:
-"olleh dlrow"
 
+```
+"olleh dlrow"
+```
 
 The order of the words must remain the same, but the characters inside each word should be reversed.
 
 ---
 
-## Solutions Implemented
+# Folder Structure
 
-This file contains multiple implementations of the same algorithm using different programming styles.
+```
+reverse-words/
+│
+├── reverseWords.js        # Implementations of the algorithm
+├── reverseWords.test.js   # Unit tests for all solutions
+└── README.md              # Documentation for the exercise
+```
 
-### 1. Classic For Loop (Algorithmic Approach)
-
-- Parses the string manually
-- Builds each word character by character
-- Reverses each word using nested loops
-- Does not rely on built-in string methods like `split` or `reverse`
-
-Purpose:
-Practice low-level string manipulation and algorithmic thinking.
+This structure keeps the algorithm implementation, tests, and documentation organized in a single directory.
 
 ---
 
-### 2. Loop-Based Approach
+# Solutions Implemented
 
-- Splits the string into an array of words
-- Uses loops to iterate over each word
-- Reverses each word manually
+This exercise includes **three different implementations** of the same algorithm to practice different programming styles and levels of abstraction.
+
+## 1. Classic Algorithm (No Built-in Methods)
+
+This version focuses on **pure algorithmic logic**.
+
+Characteristics:
+
+* Parses the string manually
+* Builds words character by character
+* Uses nested loops to reverse each word
+* Avoids built-in helpers like `split()` or `reverse()`
 
 Purpose:
-Practice iteration and array manipulation.
+
+Practice **low-level string manipulation** and **algorithmic thinking**, which is useful for coding interviews.
 
 ---
 
-### 3. Functional Approach (Modern JavaScript)
+## 2. Loop-Based Solution
 
-- Uses `split`, `map`, and `join`
-- Applies a transformation to each word
+This approach uses **basic JavaScript helpers combined with loops**.
 
-Example flow:
+Steps:
 
+1. Split the string into words
+2. Iterate through each word
+3. Reverse the characters manually
+
+Purpose:
+
+Practice **arrays**, **loops**, and **intermediate algorithm design**.
+
+---
+
+## 3. Functional JavaScript Solution
+
+This implementation uses **modern JavaScript array methods**.
+
+Flow:
+
+```
 string
-↓
+ ↓
 split(" ")
-↓
-map(reverse word)
-↓
+ ↓
+map(reverse each word)
+ ↓
 join(" ")
-
+```
 
 Purpose:
-Demonstrate a more concise and functional programming style.
+
+Demonstrate a **clean and expressive functional programming style** using:
+
+* `split()`
+* `map()`
+* `reverse()`
+* `join()`
 
 ---
 
-## Concepts Practiced
+# Tests
 
-- String manipulation
-- Loops
-- Arrays
-- Functional programming
-- Algorithmic problem solving
+This exercise includes **automated unit tests** using **Jest** to validate that all implementations behave correctly.
+
+Each solution is tested against multiple scenarios, including:
+
+* Normal strings
+* Strings with repeated characters
+* Edge cases like single characters
+* Strings where no transformation is needed
+
+Run tests with:
+
+```
+npm test
+```
 
 ---
 
-## Time Complexity
+# Concepts Practiced
+
+* String manipulation
+* Algorithm design
+* Loops
+* Arrays
+* Functional programming
+* Writing unit tests
+* Test automation
+
+---
+
+# Time Complexity
 
 O(n)
 
-Where **n** is the number of characters in the string.
+Where **n** is the number of characters in the input string.
 
 ---
 
-## Author
+# Author
 
 Angel Andrei Espiritu Pacheco

@@ -1,118 +1,171 @@
 # First Non-Repeating Character
 
-## Description
-
-This algorithm finds the **first character in a string that does not repeat**.
-
-If every character appears more than once, the function returns `null`.
-
-Example:
-
-```
-Input:  "swiss"
-Output: "The first letter not repeating is: w"
-```
+This exercise implements different approaches to find the **first character in a string that does not repeat**.
 
 ---
 
-## Problem
+# Problem
 
 Given a string, return the **first character that appears only once**.
 
-If no such character exists, return `null`.
+If every character repeats, return `null`.
+
+### Example
+
+Input:
+
+```
+"swiss"
+```
+
+Output:
+
+```
+"The first letter not repeating is: w"
+```
+
+Explanation:
+
+* `s` repeats
+* `w` appears once → first non-repeating character
 
 ---
 
-## Solutions Implemented
+# Folder Structure
 
-This exercise includes **three different approaches** to solve the problem.
+```
+first-non-repeating-char/
+│
+├── firstNonRepeating.js        # Implementations of the algorithm
+├── firstNonRepeating.test.js   # Unit tests for all solutions
+└── README.md                   # Documentation for the exercise
+```
 
-### 1. Classic Nested Loops
-
-Uses two loops to compare each character with the rest of the string.
-
-**Time Complexity:**
-O(n²)
-
----
-
-### 2. Frequency Counter (Object)
-
-Counts how many times each character appears using a JavaScript object.
-
-Then iterates through the string to find the first character with frequency `1`.
-
-**Time Complexity:**
-O(n)
+This structure keeps the **algorithm implementation**, **tests**, and **documentation** organized in a single directory.
 
 ---
 
-### 3. Array Methods
+# Solutions Implemented
 
-Uses modern JavaScript array methods such as:
+This exercise includes **three different implementations** of the same algorithm to practice different programming styles and algorithmic approaches.
+
+---
+
+## 1. Classic Algorithm (Nested Loops)
+
+This solution focuses on **pure algorithmic logic** without using helper data structures.
+
+Characteristics:
+
+* Iterates through each character
+* Compares it with every other character
+* Stops early if a duplicate is found
+* Returns the first character that never repeats
+
+Purpose:
+
+Practice **nested loops**, **comparison logic**, and **algorithm efficiency improvements** such as early termination (`break`).
+
+---
+
+## 2. Frequency Counter Approach
+
+This version uses a **frequency map (object)** to count how many times each character appears.
+
+Steps:
+
+1. Traverse the string and store the count of each character.
+2. Traverse the string again.
+3. Return the first character whose frequency equals `1`.
+
+Purpose:
+
+Practice a common interview technique called **Frequency Counter Pattern**.
+
+---
+
+## 3. Functional JavaScript Solution
+
+This implementation uses **modern JavaScript array methods**.
+
+Flow:
+
+```
+string
+ ↓
+split("")
+ ↓
+filter(unique characters)
+ ↓
+get first result
+```
+
+Purpose:
+
+Demonstrate a **concise functional programming style** using:
 
 * `split()`
 * `find()`
 * `indexOf()`
 * `lastIndexOf()`
 
-This approach is more **declarative and concise**.
-
 ---
 
-## Example
+# Tests
 
-```javascript
-firstNonRepeatingClassic("swiss")
-// "The first letter not repeating is: w"
-```
+This exercise includes **automated unit tests** to validate that all implementations behave correctly.
 
-```javascript
-firstNonRepeatingClassic("aabbcc")
-// null
-```
+The tests verify cases such as:
 
----
+* A normal string with repeated characters
+* Strings where all characters repeat
+* Single-character strings
+* Strings with multiple unique characters
 
-## Running Tests
-
-This project uses **Jest** for testing.
-
-To run the tests:
+Run tests with:
 
 ```
 npm test
 ```
 
-Example output:
-
-```
-PASS firstNonRepeating.test.js
-✓ firstNonRepeatingClassic works with swiss
-✓ firstNonRepeatingClassic returns null when all repeat
-✓ firstNonRepeatingClassic works with single character
-```
+All solutions are tested to ensure they produce **the same correct result**.
 
 ---
 
-## Folder Structure
-
-```
-first-non-repeating-char
-│
-├── first-non-repeating-char.js
-├── firstNonRepeating.test.js
-└── README.md
-```
-
----
-
-## Learning Goals
-
-This exercise practices:
+# Concepts Practiced
 
 * String manipulation
-* Algorithmic thinking
-* Time complexity analysis
-* Multiple approaches to the same problem
+* Nested loops
+* Frequency counters
+* Array methods
+* Functional programming
+* Algorithmic problem solving
 * Writing automated tests
+
+---
+
+# Time Complexity
+
+### Classic Solution
+
+O(n²)
+
+Each character may be compared with every other character.
+
+### Frequency Counter
+
+O(n)
+
+Two passes through the string.
+
+### Functional Method
+
+Approximately O(n²)
+
+Due to repeated calls to `indexOf()` and `lastIndexOf()`.
+
+---
+
+# Author
+
+Angel Andrei Espiritu Pacheco
