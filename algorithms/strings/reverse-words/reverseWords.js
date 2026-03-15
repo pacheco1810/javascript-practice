@@ -41,3 +41,8 @@ function reverseWordsFunctional(strValue){
     return arrWords.map(word  => word.split("").reverse().join("")).join(" ");
 }
 
+module.exports = {
+  reverseWordsClassic,
+  reverseWordsLoop,
+  reverseWordsFunctional
+};

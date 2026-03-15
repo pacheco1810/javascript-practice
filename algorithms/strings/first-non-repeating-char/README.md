@@ -52,7 +52,7 @@ O(n)
 Uses modern JavaScript array methods such as:
 
 * `split()`
-* `filter()`
+* `find()`
 * `indexOf()`
 * `lastIndexOf()`
 
@@ -64,7 +64,7 @@ This approach is more **declarative and concise**.
 
 ```javascript
 firstNonRepeatingClassic("swiss")
-// "The first letter not repeating is:w"
+// "The first letter not repeating is: w"
 ```
 
 ```javascript
