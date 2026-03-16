@@ -32,4 +32,8 @@ solutions.forEach(fn => {
         expect(fn("")).toBe(true);
     });
 
+    test(`${fn.name} works with empty string`, () => {
+        expect(fn("tom")).toBe(false);
+    });
+
 });
