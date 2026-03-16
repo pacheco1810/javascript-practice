@@ -52,8 +52,8 @@ Explanation:
 ```
 palindrome-check/
 │
-├── palindrome.js          # Implementations of the algorithm
-├── palindrome.test.js     # Unit tests for all solutions
+├── palindromeCheck.js          # Implementations of the algorithm
+├── palindromeCheck.test.js     # Unit tests for all solutions
 └── README.md              # Documentation for the exercise
 ```
 
