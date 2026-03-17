@@ -13,13 +13,11 @@ If every character repeats, return `null`.
 ### Example
 
 Input:
-
 ```
 "swiss"
 ```
 
 Output:
-
 ```
 "The first letter not repeating is: w"
 ```
