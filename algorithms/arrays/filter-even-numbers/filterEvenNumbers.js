@@ -27,11 +27,9 @@ function filterEvenNumbersForEach(arr) {
     return result;
 }
 
-
-
 // Solution 3 — filter
 function filterEvenNumbersFilter(arr) {
-    
+    return arr.filter(number => number % 2 === 0); 
 }
 
 module.exports = {
