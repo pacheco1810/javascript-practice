@@ -38,7 +38,7 @@ function validateUsersReduce(users) {
             if(user.role === "admin") acc.hasAdmin = true; 
         }
         return acc; 
-    }, {cleanedUsers: [], allActive: true, hasAdmin: true});
+    }, {cleanedUsers: [], allActive: true, hasAdmin: false});
 
     return cleanedUsers; 
 }
