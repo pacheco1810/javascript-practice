@@ -16,3 +16,7 @@ function findLongestWordLength(str) {
 
   return maxLength;
 }
+
+module.exports = {
+  findLongestWordLength
+};
