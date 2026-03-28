@@ -27,6 +27,7 @@ function allPeakNumber(arr, strict){
 function firstOrLastPeak(arr, strict, mode){
     if(mode !== "first" && mode !== "last") return null;
     const peaks = allPeakNumber(arr, strict);
+    if(peaks === null) return null;
     return mode === "first" ? peaks[0] : peaks[peaks.length - 1];
 }
 
