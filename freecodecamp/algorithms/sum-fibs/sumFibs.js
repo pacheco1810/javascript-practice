@@ -6,6 +6,7 @@ function sumFibs(num){
   let curr = 1; 
   let sum = 0;
   let next;
+  if(num < 2) return num;
   while(curr <= num){
     if(curr % 2){
       sum += curr;
