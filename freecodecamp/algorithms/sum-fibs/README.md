@@ -1,14 +1,17 @@
-# Sum Fibs
+# Fibonacci Sum
 
-This exercise sums all odd Fibonacci numbers up to a given number.
+This exercise provides functions to sum odd or even Fibonacci numbers up to a given limit.
 
 ---
 
 # Problem
 
-Given a positive integer, return the sum of all odd Fibonacci numbers that are less than or equal to that number.
+Create two functions:
 
-The first two Fibonacci numbers are 1 and 1. Each subsequent number is the sum of the previous two.
+* oddFibonacci(num): Sums all odd Fibonacci numbers ≤ num
+* evenFibonacci(num): Sums all even Fibonacci numbers ≤ num
+
+Fibonacci sequence starts with 1, 1, 2, 3, 5, 8, 13, 21...
 
 ---
 
@@ -16,28 +19,22 @@ The first two Fibonacci numbers are 1 and 1. Each subsequent number is the sum o
 
 Input:
 
-sumFibs(1000)
+oddFibonacci(1000)
+evenFibonacci(1000)
 
 Output:
 
 1785
-
-Fibonacci numbers up to 1000:
-1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987
-
-Odd Fibonacci numbers:
-1, 1, 3, 5, 13, 21, 55, 89, 233, 377, 987
-
-Sum: 1 + 1 + 3 + 5 + 13 + 21 + 55 + 89 + 233 + 377 + 987 = 1785
+798
 
 ---
 
 # Folder Structure
 
-sum-fibs/
+fibonacci-sum/
 │
-├── sumFibs.js
-├── sumFibs.test.js
+├── fibonacciSum.js
+├── fibonacciSum.test.js
 └── README.md
 
 ---
@@ -46,14 +43,20 @@ sum-fibs/
 
 ---
 
-## 1. Sum Fibs with While Loop
+## 1. oddFibonacci
 
 * Uses a while loop to generate Fibonacci numbers
 * Checks if each number is odd using modulo operator
 * Accumulates sum of odd numbers
 
+## 2. evenFibonacci
+
+* Uses a mathematical formula for even Fibonacci numbers
+* Each even Fibonacci number follows: F(n) = 4 * F(n-1) + F(n-2)
+* Starts with 2 and 8
+
 Purpose:
-Practice Fibonacci sequence generation, while loops, and conditional logic.
+Practice Fibonacci sequence generation, mathematical optimization, and conditional logic.
 
 ---
 
@@ -62,8 +65,8 @@ Practice Fibonacci sequence generation, while loops, and conditional logic.
 * Fibonacci sequence
 * While loops
 * Modulo operator (%)
+* Mathematical optimization
 * Conditional statements
-* Variable swapping
 
 ---
 
