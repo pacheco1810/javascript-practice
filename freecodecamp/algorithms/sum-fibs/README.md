@@ -1,17 +1,17 @@
 # Fibonacci Sum
 
-This exercise provides functions to sum odd or even Fibonacci numbers up to a given limit.
+This exercise provides functions to sum Fibonacci numbers based on different criteria.
 
 ---
 
 # Problem
 
-Create two functions:
+Create functions that:
 
-* oddFibonacci(num): Sums all odd Fibonacci numbers ≤ num
-* evenFibonacci(num): Sums all even Fibonacci numbers ≤ num
-
-Fibonacci sequence starts with 1, 1, 2, 3, 5, 8, 13, 21...
+* Sum all Fibonacci numbers up to a given limit
+* Sum only odd Fibonacci numbers
+* Sum only even Fibonacci numbers
+* A calculator function that selects which sum to perform
 
 ---
 
@@ -19,13 +19,15 @@ Fibonacci sequence starts with 1, 1, 2, 3, 5, 8, 13, 21...
 
 Input:
 
-oddFibonacci(1000)
-evenFibonacci(1000)
+calculateFibonacci(10, "add")
+calculateFibonacci(10, "odd")
+calculateFibonacci(10, "even")
 
 Output:
 
-1785
-798
+143
+10
+10
 
 ---
 
@@ -43,30 +45,30 @@ fibonacci-sum/
 
 ---
 
-## 1. oddFibonacci
+## 1. addFibonacci
 
-* Uses a while loop to generate Fibonacci numbers
-* Checks if each number is odd using modulo operator
-* Accumulates sum of odd numbers
+* Sums all Fibonacci numbers ≤ num
 
-## 2. evenFibonacci
+## 2. oddFibonacci
 
-* Uses a mathematical formula for even Fibonacci numbers
-* Each even Fibonacci number follows: F(n) = 4 * F(n-1) + F(n-2)
-* Starts with 2 and 8
+* Sums only odd Fibonacci numbers ≤ num
 
-Purpose:
-Practice Fibonacci sequence generation, mathematical optimization, and conditional logic.
+## 3. evenFibonacci
+
+* Sums only even Fibonacci numbers ≤ num using optimized formula
+
+## 4. calculateFibonacci
+
+* Wrapper function that selects the appropriate sum based on option parameter
 
 ---
 
 # Concepts Practiced
 
 * Fibonacci sequence
-* While loops
-* Modulo operator (%)
+* Switch statements
+* Conditional logic
 * Mathematical optimization
-* Conditional statements
 
 ---
 
