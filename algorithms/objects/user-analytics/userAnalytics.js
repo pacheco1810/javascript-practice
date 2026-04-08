@@ -35,8 +35,55 @@ function getMostCommonActiveAge(users){
     }, {count: {}, max: 0, age: null }).age;
 }
 
+function getInactiveUserNames(users){
+    return users.filter(user => !user.active).map(user => user.name); 
+}
+
+function groupUsersByActiveStatus(users){
+    return users.reduce((acc, user) =>{
+        if(user.active) acc.active.push(user.name);
+        else acc.inactive.push(user.name);
+        return acc;
+    }, {active: [], inactive: []}); 
+}
+/*
+function getAgeStats(users){
+    return users.reduce((acc, user) => {
+        acc[user.age] = acc[user.age] || {active: 0, inactive: 0}; 
+        if (user.active) {
+            acc[user.age].active += 1;
+        } else {
+            acc[user.age].inactive += 1;
+        }
+        return acc;
+    }, {})
+}*/ 
+function getAgeStats(users) {
+    return users.reduce((acc, { age, active }) => {
+        acc[age] ??= { active: 0, inactive: 0 };
+
+        acc[age][active ? "active" : "inactive"]++;
+
+        return acc;
+    }, {});
+}
+
+function getTopActiveUsersByAge(users){
+    return users.filter(user => user.active).reduce((acc, user) => {
+        acc[user.age] = acc[user.age] || {name: [], total: 0};
+        acc[user.age].name.push(user.name);
+        acc[user.age].total += 1;
+        return acc;
+    }, {})
+}
+
+
 module.exports = {
     users,
     groupActiveUsersByAge,
-    getMostCommonActiveAge
+    getMostCommonActiveAge,
+    getInactiveUserNames,
+    groupUsersByActiveStatus,
+    getAgeStats,
+    getTopActiveUsersByAge
 };
