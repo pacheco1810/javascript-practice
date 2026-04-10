@@ -55,6 +55,12 @@ find-min/
 * Uses forEach method to iterate
 * Updates minimum value as it traverses the array
 
+## 4. findMinWithReduce
+
+* Uses reduce() method
+* Starts with Infinity as initial value
+* Compares and returns the smallest number
+
 ---
 
 # Concepts Practiced
@@ -63,6 +69,7 @@ find-min/
 * For loops
 * ForEach method
 * Math.min()
+* Reduce method
 * Spread operator
 * Comparison logic
 

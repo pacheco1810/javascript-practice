@@ -36,8 +36,20 @@ function findMinWithForEach(arr){
     return response;
 }
 
+// Input: findMinWithReduce([8, 3, 12, 1, 6])
+// Output: 1
+
+// V4 solution: reduce method
+function findMinWithReduce(arr){
+    return arr.reduce((acc, number) => {
+        if(number < acc) acc = number;
+        return acc;
+    }, Infinity);
+}
+
 module.exports = {
     findMinWithFor,
     findMinWithMath,
-    findMinWithForEach
+    findMinWithForEach,
+    findMinWithReduce
 };
