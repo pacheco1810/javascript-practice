@@ -4,7 +4,7 @@
  * Difficulty: Easy
  */
 
-// Input: findMinWithForEach([8, 3, 12, 1, 6])
+// Input: findMinWithFor([8, 3, 12, 1, 6])
 // Output: 1
 
 // V1 solution: for loop
@@ -16,10 +16,16 @@ function findMinWithFor(arr){
     return response;
 }
 
+// Input: findMinWithMath([8, 3, 12, 1, 6])
+// Output: 1
+
 // V2 solution: Math.min method 
 function findMinWithMath(arr){
     return Math.min(...arr); 
 }
+
+// Input: findMinWithForEach([8, 3, 12, 1, 6])
+// Output: 1
 
 // V3 solution: forEach method
 function findMinWithForEach(arr){
