@@ -1,5 +1,11 @@
+/**
+ * Problem: Calculate order revenue and totals by status
+ * Topic: Arrays
+ * Difficulty: Medium
+ */
+
 // Input: getTotalRevenue(orders, "completed")
-// Output: { total: 1650, Juan: 1100, Luis: 650 }
+// Output: { total: 1750, Juan: 1100, Luis: 650 }
 // Input: getTotalRevenue(orders, "pending")
 // Output: { total: 80, Ana: 80 }
 
@@ -32,12 +38,15 @@ const orders = [
   }
 ];
 
-function getOrders(orders){
-    if(orders.status === "completed"){
-        return orders.filter(order => order.status === "completed");
-    }
-    return orders.filter(order => order.status === "pending");
+// Input: getOrders(orders, "completed")
+// Output: Array of orders with status "completed"
+
+function getOrders(orders, status){
+  return orders.filter(order => order.status === status);
 }
+
+// Input: getOrderTotal([{ product: "Laptop", price: 1000, quantity: 1 }, { product: "Mouse", price: 50, quantity: 2 }])
+// Output: 1100
 
 function getOrderTotal(items){
     return items.reduce((acc, item) => {
@@ -45,14 +54,20 @@ function getOrderTotal(items){
     }, 0)
 }
 
+// Input: addTotalToOrders(orders)
+// Output: Orders array with total property added to each order
+
 function addTotalToOrders(orders){
     return orders.map(order =>{
          return {...order, total: getOrderTotal(order.items)} 
     });
 }
 
+// Input: getTotalRevenue(orders, "completed")
+// Output: { total: 1750, Juan: 1100, Luis: 650 }
+
 function getTotalRevenue(orders, status){
-    return orders.filter(order => !status || order.status === status ).reduce((acc, order) =>{
+    return orders.filter(order => !status || order.status === status).reduce((acc, order) =>{
         if(order.items.length === 0) return acc; 
         
         const orderTotal = getOrderTotal(order.items);
@@ -60,7 +75,7 @@ function getTotalRevenue(orders, status){
         acc.total += orderTotal;
         
         return acc;
-    },{total: 0});
+    }, {total: 0});
 }
 
 module.exports = {
