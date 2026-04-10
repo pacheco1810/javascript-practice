@@ -1,3 +1,9 @@
+/**
+ * Problem: Summarize orders by calculating total, collecting products, and identifying expensive orders
+ * Topic: Arrays
+ * Difficulty: Easy
+ */
+
 // Input: summarizeOrders(orders)
 // Output: {
 //   total: 1450,
@@ -14,6 +20,9 @@ const orders = [
   { id: 3, product: "Keyboard", price: 100 },
   { id: 4, product: "Monitor", price: 300 }
 ];
+
+// Input: summarizeOrders(orders)
+// Output: { total: 1450, products: ["Laptop", "Mouse", "Keyboard", "Monitor"], expensiveOrders: [...] }
 
 function summarizeOrders(orders){
     return orders.reduce((acc, order) => {
