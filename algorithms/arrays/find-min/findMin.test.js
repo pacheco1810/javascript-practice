@@ -1,9 +1,15 @@
-const { findMinWithFor, findMinWithMath, findMinWithForEach } = require('./findMin');
+const { 
+    findMinWithFor, 
+    findMinWithMath, 
+    findMinWithForEach,
+    findMinWithReduce
+} = require('./findMin');
 
 const solutions = [
     { name: 'findMinWithFor', fn: findMinWithFor },
     { name: 'findMinWithMath', fn: findMinWithMath },
-    { name: 'findMinWithForEach', fn: findMinWithForEach }
+    { name: 'findMinWithForEach', fn: findMinWithForEach },
+    { name: 'findMinWithReduce', fn: findMinWithReduce }
 ];
 
 solutions.forEach(({ name, fn }) => {
