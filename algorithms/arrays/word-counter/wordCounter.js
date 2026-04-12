@@ -1,13 +1,25 @@
+/**
+ * Problem: Count and group words by different criteria using reduce
+ * Topic: Arrays
+ * Difficulty: Easy
+ */
+
 // Input: countWords(["apple", "banana", "apple", "orange"])
 // Output: { apple: 2, banana: 1, orange: 1 }
+
 // Input: countWordsByLength(["apple", "banana", "apple", "orange"])
 // Output: { 5: 2, 6: 2 }
+
 // Input: groupWordsByLength(["apple", "banana", "apple", "orange"])
 // Output: { 5: ["apple", "apple"], 6: ["banana", "orange"] }
+
 // Input: groupByFirstLetter(["apple", "banana", "apple", "orange"])
 // Output: { a: 2, b: 1, o: 1 }
 
 const words = ["apple", "banana", "apple", "orange"];
+
+// Input: countWords(["apple", "banana", "apple", "orange"])
+// Output: { apple: 2, banana: 1, orange: 1 }
 
 function countWords(words){
     return words.reduce((acc, word) =>{
@@ -15,6 +27,9 @@ function countWords(words){
         return acc;
     }, {})
 }
+
+// Input: countWordsByLength(["apple", "banana", "apple", "orange"])
+// Output: { 5: 2, 6: 2 }
 
 function countWordsByLength(words){
     return words.reduce((acc, word) =>{
@@ -24,6 +39,9 @@ function countWordsByLength(words){
     }, {})
 }
 
+// Input: groupWordsByLength(["apple", "banana", "apple", "orange"])
+// Output: { 5: ["apple", "apple"], 6: ["banana", "orange"] }
+
 function groupWordsByLength(words){
     return words.reduce((acc, word) =>{
         const lengthWord = word.length; 
@@ -31,6 +49,9 @@ function groupWordsByLength(words){
         return acc;
     }, {})
 }
+
+// Input: groupByFirstLetter(["apple", "banana", "apple", "orange"])
+// Output: { a: 2, b: 1, o: 1 }
 
 function groupByFirstLetter(words){
     return words.reduce((acc, word) =>{
