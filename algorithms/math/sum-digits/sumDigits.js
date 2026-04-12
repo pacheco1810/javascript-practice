@@ -4,7 +4,7 @@
  * Difficulty: Easy
  */
 
-// Input: sumDigitsByReduce("2222")
+// Input: sumDigitsByFor("2222")
 // Output: 8
 
 function sumDigitsByFor(numbers){
@@ -15,6 +15,9 @@ function sumDigitsByFor(numbers){
     return response;
 }
 
+// Input: sumDigitsByWhile(2222)
+// Output: 8
+
 function sumDigitsByWhile(numbers){
     let response = 0;
     while(numbers > 0){
@@ -24,6 +27,9 @@ function sumDigitsByWhile(numbers){
     return response;
 }
 
+// Input: sumDigitsByForEach("2222")
+// Output: 8
+
 function sumDigitsByForEach(numbers){
     let response = 0;
     numbers.split("").forEach((number) => {
@@ -31,6 +37,9 @@ function sumDigitsByForEach(numbers){
     });
     return response; 
 }
+
+// Input: sumDigitsByReduce("2222")
+// Output: 8
 
 function sumDigitsByReduce(numbers){
     return numbers.split("").reduce((acc, number) => {
