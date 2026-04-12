@@ -4,8 +4,8 @@
  * Difficulty: Medium
  */
 
-// Input: getTopSpenderByReduce(orders)
-// Output: "Pedro"
+// Input: calculateTotalSpentByUser(orders)
+// Output: { Juan: 170, Maria: 230, Pedro: 200 }
 
 function calculateTotalSpentByUser(orders){
     return orders.reduce((acc, order) => {
@@ -13,6 +13,9 @@ function calculateTotalSpentByUser(orders){
         return acc;
     }, {})
 }
+
+// Input: getTopSpender(orders)
+// Output: "Maria"
 
 function getTopSpender(orders){
     const spenders = calculateTotalSpentByUser(orders); 
@@ -26,6 +29,9 @@ function getTopSpender(orders){
     }
     return topSpender;
 }
+
+// Input: getTopSpenderByReduce(orders)
+// Output: "Maria"
 
 function getTopSpenderByReduce(orders){
     let result = [];
