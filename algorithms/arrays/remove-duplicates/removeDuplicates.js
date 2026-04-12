@@ -1,31 +1,26 @@
-// Input: [1, 2, 2, 3, 4, 4]
-// Output: [1, 2, 3, 4]
+/**
+ * Problem: Remove duplicate values from an array
+ * Topic: Arrays
+ * Difficulty: Easy
+ */
 
+// Input: removeDuplicatesClassic([1, 2, 2, 3, 4, 4])
+// Output: [1, 2, 3, 4]
 
 // Solution 1 — Classic loop
 function removeDuplicatesClassic(arr) {
-    let result = [], flag = 0;
+    let result = [];
 
     for(let number of arr){
         if(result.includes(number)) continue;
         else result.push(number);
     }
-
-    /*Otra opción sin usar includes;
-    for(let i = 0; i < arr.length; i++){
-        for(let j = 0; j < result.length; j++){
-            if(arr[i] === result[j]) flag = 1;
-        }
-        if(flag === 0){
-            result.push(arr[i]);
-        }
-        flag = 0;
-    }*/
     
     return result;
 }
 
-
+// Input: removeDuplicatesForEach([1, 2, 2, 3, 4, 4])
+// Output: [1, 2, 3, 4]
 
 // Solution 2 — forEach
 function removeDuplicatesForEach(arr) {
@@ -37,21 +32,16 @@ function removeDuplicatesForEach(arr) {
     return result;
 }
 
+// Input: removeDuplicatesFilter([1, 2, 2, 3, 4, 4])
+// Output: [1, 2, 3, 4]
 
-
-// Solution 3 — filter / Set
+// Solution 3 — filter
 function removeDuplicatesFilter(arr) {
-    // OPTION A (filter)
     return arr.filter((num, index) => arr.indexOf(num) === index);
-    // 2. Compare indexOf with current index
-
-    /* OPTION B (Set)
-    return [...new Set(arr)];*/
 }
 
-
 module.exports = {
-  removeDuplicatesClassic,
-  removeDuplicatesForEach,
-  removeDuplicatesFilter
+    removeDuplicatesClassic,
+    removeDuplicatesForEach,
+    removeDuplicatesFilter
 };
