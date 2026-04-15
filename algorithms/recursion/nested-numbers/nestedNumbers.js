@@ -1,5 +1,5 @@
 /**
- * Problem: Analyze nested arrays of numbers (max, min, sum, average, parity)
+ * Problem: Analyze nested arrays of numbers (max, min, sum, average, parity, custom conditions)
  * Topic: Recursion
  * Difficulty: Medium
  */
@@ -61,8 +61,56 @@ function sumParityNested(numbers){
     }, {even: 0, odd: 0});
 }
 
+// Input: countByConditionNested([1, [2, 3, 4]], n => n % 2 === 0)
+// Output: 2
+
+function countByConditionNested(numbers, condition){
+    return numbers.reduce((acc, number) => {
+        if(Array.isArray(number)){
+            return acc + countByConditionNested(number, condition);
+        } else {
+            if(condition(number)) acc++;
+        }
+        return acc;
+    }, 0);
+}
+
+// Input: sumByConditionNested([1, [2, 3, 4]], n => n % 2 === 0)
+// Output: 6
+
+function sumByConditionNested(numbers, condition){
+    return numbers.reduce((acc, number) => {
+        if(Array.isArray(number)){
+            return acc + sumByConditionNested(number, condition);
+        } else {
+            if(condition(number)) acc += number;
+        }
+        return acc;
+    }, 0);
+}
+
+// Input: groupByConditionNested([1, [2, 3, 4]], n => n % 2 === 0)
+// Output: { true: [2, 4], false: [1, 3] }
+
+function groupByConditionNested(numbers, condition){
+    return numbers.reduce((acc, number) => {
+        if(Array.isArray(number)){
+            const result = groupByConditionNested(number, condition);
+            acc.true.push(...result.true);
+            acc.false.push(...result.false);
+        } else {
+            if(condition(number)) acc.true.push(number);
+            else acc.false.push(number);
+        }
+        return acc;
+    }, {true: [], false: []});
+}
+
 module.exports = {
     analyzeNestedNumbers,
     groupNumbersByParityNested,
-    sumParityNested
+    sumParityNested,
+    countByConditionNested,
+    sumByConditionNested,
+    groupByConditionNested
 };
