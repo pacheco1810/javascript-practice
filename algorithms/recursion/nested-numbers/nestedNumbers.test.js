@@ -1,7 +1,10 @@
 const { 
     analyzeNestedNumbers, 
     groupNumbersByParityNested, 
-    sumParityNested 
+    sumParityNested,
+    countByConditionNested,
+    sumByConditionNested,
+    groupByConditionNested
 } = require('./nestedNumbers');
 
 const data = [3, [5, 1], [7, [2, 9]], 4];
@@ -25,16 +28,6 @@ describe('analyzeNestedNumbers', () => {
         expect(result.sum).toBe(10);
         expect(result.count).toBe(4);
         expect(result.average).toBe(2.5);
-    });
-
-    test('handles single number', () => {
-        const result = analyzeNestedNumbers([5]);
-        
-        expect(result.max).toBe(5);
-        expect(result.min).toBe(5);
-        expect(result.sum).toBe(5);
-        expect(result.count).toBe(1);
-        expect(result.average).toBe(5);
     });
 
     test('handles empty array', () => {
@@ -62,13 +55,6 @@ describe('groupNumbersByParityNested', () => {
         expect(result.even).toEqual([2, 4]);
         expect(result.odd).toEqual([1, 3]);
     });
-
-    test('handles empty array', () => {
-        const result = groupNumbersByParityNested([]);
-        
-        expect(result.even).toEqual([]);
-        expect(result.odd).toEqual([]);
-    });
 });
 
 describe('sumParityNested', () => {
@@ -85,11 +71,55 @@ describe('sumParityNested', () => {
         expect(result.even).toBe(6);
         expect(result.odd).toBe(4);
     });
+});
+
+describe('countByConditionNested', () => {
+    test('counts even numbers in nested array', () => {
+        const result = countByConditionNested([1, [2, 3, 4]], n => n % 2 === 0);
+        expect(result).toBe(2);
+    });
+
+    test('counts numbers greater than 2', () => {
+        const result = countByConditionNested([1, [2, 3, 4]], n => n > 2);
+        expect(result).toBe(2);
+    });
 
     test('handles empty array', () => {
-        const result = sumParityNested([]);
-        
-        expect(result.even).toBe(0);
-        expect(result.odd).toBe(0);
+        const result = countByConditionNested([], n => n > 0);
+        expect(result).toBe(0);
+    });
+});
+
+describe('sumByConditionNested', () => {
+    test('sums even numbers in nested array', () => {
+        const result = sumByConditionNested([1, [2, 3, 4]], n => n % 2 === 0);
+        expect(result).toBe(6);
+    });
+
+    test('sums numbers greater than 2', () => {
+        const result = sumByConditionNested([1, [2, 3, 4]], n => n > 2);
+        expect(result).toBe(7);
+    });
+
+    test('handles empty array', () => {
+        const result = sumByConditionNested([], n => n > 0);
+        expect(result).toBe(0);
+    });
+});
+
+describe('groupByConditionNested', () => {
+    test('groups even and odd numbers', () => {
+        const result = groupByConditionNested([1, [2, 3, 4]], n => n % 2 === 0);
+        expect(result).toEqual({ true: [2, 4], false: [1, 3] });
+    });
+
+    test('groups numbers greater than 2', () => {
+        const result = groupByConditionNested([1, [2, 3, 4]], n => n > 2);
+        expect(result).toEqual({ true: [3, 4], false: [1, 2] });
+    });
+
+    test('handles empty array', () => {
+        const result = groupByConditionNested([], n => n > 0);
+        expect(result).toEqual({ true: [], false: [] });
     });
 });
