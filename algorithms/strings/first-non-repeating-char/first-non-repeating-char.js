@@ -1,3 +1,12 @@
+/**
+ * Problem: Find the first non-repeating character in a string
+ * Topic: Strings
+ * Difficulty: Easy
+ */
+
+// Input: firstNonRepeatingClassic("swiss")
+// Output: "The first letter not repeating is: w"
+
 // Solution 1 — Classic nested loops
 function firstNonRepeatingClassic(strValue) {
     let char, flag = 0;
@@ -17,6 +26,9 @@ function firstNonRepeatingClassic(strValue) {
     return null;
 }
 
+// Input: firstNonRepeatingFrequency("swiss")
+// Output: "The first letter not repeating is: w"
+
 // Solution 2 — Frequency counter (object)
 function firstNonRepeatingFrequency(strValue) {
     let char;
@@ -24,9 +36,9 @@ function firstNonRepeatingFrequency(strValue) {
     for(let letter = 0; letter < strValue.length; letter++){
         char = strValue[letter];
         if(characters[char] === undefined){
-         characters[char] = 1;   
-        }else{
-           characters[char] += 1;  
+            characters[char] = 1;   
+        } else {
+            characters[char] += 1;  
         }
     }
     for(let letters = 0; letters < strValue.length; letters++){
@@ -38,6 +50,9 @@ function firstNonRepeatingFrequency(strValue) {
     return null;
 }
 
+// Input: firstNonRepeatingMethods("swiss")
+// Output: "The first letter not repeating is: w"
+
 // Solution 3 — Using array methods
 function firstNonRepeatingMethods(strValue) {
     const result = strValue.split("").find(char => strValue.indexOf(char) === strValue.lastIndexOf(char));
@@ -45,8 +60,7 @@ function firstNonRepeatingMethods(strValue) {
 }
 
 module.exports = {
-  firstNonRepeatingClassic,
-  firstNonRepeatingFrequency,
-  firstNonRepeatingMethods
+    firstNonRepeatingClassic,
+    firstNonRepeatingFrequency,
+    firstNonRepeatingMethods
 };
-
