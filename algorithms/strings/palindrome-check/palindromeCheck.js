@@ -1,4 +1,10 @@
-// Input: "racecar"
+/**
+ * Problem: Check if a string is a palindrome (reads the same forward and backward)
+ * Topic: Strings
+ * Difficulty: Easy
+ */
+
+// Input: palindromeClassic("racecar")
 // Output: true
 
 // Solution 1 — Classic for loop
@@ -11,7 +17,8 @@ function palindromeClassic(strValue) {
     return strValue === reversed; 
 }
 
-
+// Input: palindromeLoop("racecar")
+// Output: true
 
 // Solution 2 — JavaScript methods
 function palindromeLoop(strValue){
@@ -20,7 +27,8 @@ function palindromeLoop(strValue){
     return strValue === reversed;
 }
 
-
+// Input: palindromeTwoPointers("racecar")
+// Output: true
 
 // Solution 3 — Two pointers technique
 function palindromeTwoPointers(strValue){
@@ -34,7 +42,7 @@ function palindromeTwoPointers(strValue){
 }
 
 module.exports = {
-  palindromeClassic,
-  palindromeLoop,
-  palindromeTwoPointers
+    palindromeClassic,
+    palindromeLoop,
+    palindromeTwoPointers
 };
