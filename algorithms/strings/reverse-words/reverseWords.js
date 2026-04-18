@@ -1,5 +1,11 @@
-//Input: "javascript is fun"
-//Output: "tpircsavaj si nuf"
+/**
+ * Problem: Reverse each word in a string but keep the word order
+ * Topic: Strings
+ * Difficulty: Easy
+ */
+
+// Input: reverseWordsClassic("javascript is fun")
+// Output: "tpircsavaj si nuf"
 
 // Solution 1 — Classic for loop
 function reverseWordsClassic(strValue) {
@@ -8,7 +14,7 @@ function reverseWordsClassic(strValue) {
     for(let i = 0; i < strValue.length; i++){
         if(strValue[i] !== separator){
             wordAct += strValue[i];
-        }else{
+        } else {
             wordArr.push(wordAct);
             wordAct = "";
         }
@@ -24,6 +30,9 @@ function reverseWordsClassic(strValue) {
     return result; 
 }
 
+// Input: reverseWordsLoop("javascript is fun")
+// Output: "tpircsavaj si nuf"
+
 // Solution 2 — for...of loop
 function reverseWordsLoop(strValue){
     const arrWords = strValue.split(" ");
@@ -34,15 +43,18 @@ function reverseWordsLoop(strValue){
     return result.trim(); 
 }
 
+// Input: reverseWordsFunctional("javascript is fun")
+// Output: "tpircsavaj si nuf"
+
 // Solution 3 — Functional approach (map)
 function reverseWordsFunctional(strValue){
     const arrWords = strValue.split(" ");
      
-    return arrWords.map(word  => word.split("").reverse().join("")).join(" ");
+    return arrWords.map(word => word.split("").reverse().join("")).join(" ");
 }
 
 module.exports = {
-  reverseWordsClassic,
-  reverseWordsLoop,
-  reverseWordsFunctional
+    reverseWordsClassic,
+    reverseWordsLoop,
+    reverseWordsFunctional
 };
