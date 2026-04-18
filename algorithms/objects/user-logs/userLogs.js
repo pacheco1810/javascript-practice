@@ -17,6 +17,13 @@ const logs = [
   { userId: 3, action: "purchase", device: "desktop" }
 ];
 
+// Input: generateUserAnalytics(logs)
+// Output: {
+//   1: { totalActions: 3, actions: { login: 1, purchase: 1, logout: 1 }, devices: ["mobile"] },
+//   2: { totalActions: 2, actions: { purchase: 1, login: 1 }, devices: ["desktop", "mobile"] },
+//   3: { totalActions: 2, actions: { login: 1, purchase: 1 }, devices: ["desktop"] }
+// }
+
 function generateUserAnalytics(users){
     let result = users.reduce((acc, user) => {
         acc[user.userId] = acc[user.userId] || {totalActions: 0, actions: {}, devices: new Set()};
@@ -33,6 +40,9 @@ function generateUserAnalytics(users){
     return result;
 }
 
+// Input: getMostActiveUser(logs)
+// Output: 1
+
 function getMostActiveUser(users){
     return users.reduce((acc, user) => {
         acc.userCounts[user.userId] = (acc.userCounts[user.userId] ?? 0) + 1;
@@ -44,12 +54,18 @@ function getMostActiveUser(users){
     }, {userCounts: {}, max: 0, topUser: null}).topUser;
 }
 
+// Input: getUserActionCountMap(logs)
+// Output: { 1: 3, 2: 2, 3: 2 }
+
 function getUserActionCountMap(users){
     return users.reduce((acc, user) => {
         acc[user.userId] = (acc[user.userId] ?? 0) + 1;
         return acc;
     }, {});
 }
+
+// Input: getTopUserByAction(logs)
+// Output: 1
 
 function getTopUserByAction(users){
     const result = users.filter(user => user.action === "purchase").reduce((acc, user) => {
@@ -63,6 +79,9 @@ function getTopUserByAction(users){
     
     return result.topUser;
 }
+
+// Input: getTopDevicePerUser(logs)
+// Output: { 1: "mobile", 2: "desktop", 3: "desktop" }
 
 function getTopDevicePerUser(users){
     const result = users.reduce((acc, user) => {
