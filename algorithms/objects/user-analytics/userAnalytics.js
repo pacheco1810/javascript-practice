@@ -15,12 +15,18 @@ const users = [
   { id: 5, name: "Luis", age: 25, active: false }
 ];
 
+// Input: groupActiveUsersByAge(users)
+// Output: { 25: ["Juan"], 22: ["Pedro"], 30: ["Ana"] }
+
 function groupActiveUsersByAge(users){
    return users.filter(user => user.active).reduce((acc, user) =>{
        acc[user.age] = [...(acc[user.age] || []), user.name];
        return acc;
    }, {});    
 }
+
+// Input: getMostCommonActiveAge(users)
+// Output: 25
 
 function getMostCommonActiveAge(users){
     return users.filter(user => user.active).reduce((acc, user) => {
@@ -35,9 +41,15 @@ function getMostCommonActiveAge(users){
     }, {count: {}, max: 0, age: null }).age;
 }
 
+// Input: getInactiveUserNames(users)
+// Output: ["Maria", "Luis"]
+
 function getInactiveUserNames(users){
     return users.filter(user => !user.active).map(user => user.name); 
 }
+
+// Input: groupUsersByActiveStatus(users)
+// Output: { active: ["Juan", "Pedro", "Ana"], inactive: ["Maria", "Luis"] }
 
 function groupUsersByActiveStatus(users){
     return users.reduce((acc, user) =>{
@@ -46,18 +58,10 @@ function groupUsersByActiveStatus(users){
         return acc;
     }, {active: [], inactive: []}); 
 }
-/*
-function getAgeStats(users){
-    return users.reduce((acc, user) => {
-        acc[user.age] = acc[user.age] || {active: 0, inactive: 0}; 
-        if (user.active) {
-            acc[user.age].active += 1;
-        } else {
-            acc[user.age].inactive += 1;
-        }
-        return acc;
-    }, {})
-}*/ 
+
+// Input: getAgeStats(users)
+// Output: { 25: { active: 1, inactive: 1 }, 30: { active: 1, inactive: 1 }, 22: { active: 1, inactive: 0 } }
+
 function getAgeStats(users) {
     return users.reduce((acc, { age, active }) => {
         acc[age] ??= { active: 0, inactive: 0 };
@@ -68,15 +72,17 @@ function getAgeStats(users) {
     }, {});
 }
 
+// Input: getTopActiveUsersByAge(users)
+// Output: { 25: { name: ["Juan"], total: 1 }, 22: { name: ["Pedro"], total: 1 }, 30: { name: ["Ana"], total: 1 } }
+
 function getTopActiveUsersByAge(users){
     return users.filter(user => user.active).reduce((acc, user) => {
-        acc[user.age] = acc[user.age] || {name: [], total: 0};
+        acc[user.age] = acc[user.age] || { name: [], total: 0 };
         acc[user.age].name.push(user.name);
         acc[user.age].total += 1;
         return acc;
-    }, {})
+    }, {});
 }
-
 
 module.exports = {
     users,
