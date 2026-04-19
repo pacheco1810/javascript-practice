@@ -45,8 +45,6 @@ describe('getMostCommonLength', () => {
 
     test('handles tie - returns first encountered', () => {
         const result = getMostCommonLength("cat dog bird fish");
-        // cat(3), dog(3), bird(4), fish(4) -> 3 y 4 tienen 2 cada uno
-        // Como 3 aparece primero, debería retornar 3
         expect(result).toBe(3);
     });
 
