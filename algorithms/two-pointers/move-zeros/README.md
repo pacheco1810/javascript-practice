@@ -1,6 +1,6 @@
 # Move Zeros
 
-This exercise moves all zeros to the end of an array while preserving the relative order of non-zero elements using the two pointers technique.
+This exercise moves all zeros to the end of an array while preserving the relative order of non-zero elements using different approaches.
 
 ---
 
@@ -8,8 +8,8 @@ This exercise moves all zeros to the end of an array while preserving the relati
 
 Given an array of integers, move all zeros to the end of the array while maintaining the relative order of the non-zero elements.
 
-* Must be done in-place
-* Do not create a copy of the array
+* Must be done in-place (except the new array version)
+* Do not create a copy of the array (except the new array version)
 * The relative order of non-zero elements must stay the same
 
 ---
@@ -19,12 +19,6 @@ Given an array of integers, move all zeros to the end of the array while maintai
 Input:
 
 moveZeros([0, 1, 0, 3, 12])
-
-Process:
-- Write pointer tracks position for next non-zero
-- Read pointer scans the array
-- Non-zero elements are written to write position
-- Remaining positions filled with zeros
 
 Output:
 
@@ -46,11 +40,22 @@ move-zeros/
 
 ---
 
-## 1. moveZeros
+## 1. moveZeros (Two-pass)
 
-* Uses two pointers: i (read) and write (write)
 * First pass: copy all non-zero elements to front
 * Second pass: fill remaining positions with zeros
+
+## 2. moveZerosToEndNewArray (New Array)
+
+* Creates a new array filled with zeros
+* Places non-zero elements in order at the beginning
+* Does not modify original array
+
+## 3. moveZerosToEndTwoPointers (Swap)
+
+* Uses two pointers (left and right)
+* Swaps non-zero elements with zeros
+* Single pass, in-place modification
 
 ---
 
@@ -58,23 +63,21 @@ move-zeros/
 
 * Two pointers technique
 * In-place array manipulation
-* Two-pass algorithm
+* Array creation methods
+* Swap technique
 
 ---
 
 # Time Complexity
 
-O(n)
-
-Where n is the length of the array.
+* All versions: O(n)
 
 ---
 
 # Space Complexity
 
-O(1)
-
-In-place modification.
+* Two-pass and Swap: O(1)
+* New Array: O(n)
 
 ---
 
