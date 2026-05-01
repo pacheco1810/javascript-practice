@@ -7,7 +7,7 @@
 // Input: moveZeros([0, 1, 0, 3, 12])
 // Output: [1, 3, 12, 0, 0]
 
-// Versión original - Two pass
+// Version 1 - Two pass
 function moveZeros(nums){
     let write = 0;
     let i = 0; 
@@ -28,7 +28,7 @@ function moveZeros(nums){
     return nums;
 }
 
-// Versión 2 - Crear nuevo array
+// Version 2 - Create new array
 function moveZerosToEndNewArray(nums){
     let result = Array(nums.length).fill(0);
     let left = 0;
@@ -43,14 +43,15 @@ function moveZerosToEndNewArray(nums){
     return result;
 }
 
-// Versión 3 - Two pointers con swap
+// Version 3 - Two pointers (original)
 function moveZerosToEndTwoPointers(nums){
     let left = 0; 
     let right = 0;
   
     while(right < nums.length){
         if(nums[right] !== 0){
-            [nums[left], nums[right]] = [nums[right], nums[left]];
+            nums[left] = nums[right];
+            nums[right] = 0;
             left++;
         }
         right++;
