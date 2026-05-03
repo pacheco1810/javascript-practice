@@ -71,7 +71,6 @@ solutions.forEach(({ name, fn }) => {
 
 });
 
-// Tests específicos para moveZerosToEndNewArray (no modifica original)
 describe('moveZerosToEndNewArray specific', () => {
     test('does not modify original array', () => {
         const original = [0, 1, 0, 3, 12];
@@ -81,9 +80,8 @@ describe('moveZerosToEndNewArray specific', () => {
     });
 });
 
-// Tests específicos para moveZerosToEndTwoPointers (in-place con swap)
 describe('moveZerosToEndTwoPointers specific', () => {
-    test('uses swap and moves zeros correctly', () => {
+    test('moves zeros correctly with swap', () => {
         const input = [0, 1, 0, 3, 12];
         expect(moveZerosToEndTwoPointers(input)).toEqual([1, 3, 12, 0, 0]);
     });
@@ -91,5 +89,10 @@ describe('moveZerosToEndTwoPointers specific', () => {
     test('handles array with no zeros', () => {
         const input = [1, 2, 3];
         expect(moveZerosToEndTwoPointers(input)).toEqual([1, 2, 3]);
+    });
+
+    test('handles array with zeros at beginning', () => {
+        const input = [0, 0, 1, 2];
+        expect(moveZerosToEndTwoPointers(input)).toEqual([1, 2, 0, 0]);
     });
 });

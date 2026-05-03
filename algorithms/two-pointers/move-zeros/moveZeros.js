@@ -43,18 +43,17 @@ function moveZerosToEndNewArray(nums){
     return result;
 }
 
-// Version 3 - Two pointers (original)
+// Version 3 - Two pointers with swap (fixed)
 function moveZerosToEndTwoPointers(nums){
     let left = 0; 
-    let right = 0;
   
-    while(right < nums.length){
+    for(let right = 0; right < nums.length; right++){
         if(nums[right] !== 0){
-            nums[left] = nums[right];
-            nums[right] = 0;
+            if(left !== right){
+                [nums[left], nums[right]] = [nums[right], nums[left]];
+            }
             left++;
         }
-        right++;
     }
   
     return nums; 
