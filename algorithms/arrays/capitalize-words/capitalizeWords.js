@@ -19,7 +19,7 @@ function capitalizeWordsByFor(words){
     if(typeof word !== "string" || word.trim() === ""){
         continue;
     }
-    result.push(word[0].toUpperCase() + word.slice(1));
+    result.push(word[0].toUpperCase() + word.slice(1).toLowerCase());
   }
   
   return result;
@@ -35,7 +35,7 @@ function capitalizeWordsByFilterAndMap(words){
   }
   return words
     .filter(word => typeof word === "string" && word.trim() !== "")
-    .map(word => word[0].toUpperCase() + word.slice(1));
+    .map(word => word[0].toUpperCase() + word.slice(1).toLowerCase());
 }
 
 // Input: capitalizeWordsByReduce(["apple", "banana", "orange"])
@@ -51,7 +51,7 @@ function capitalizeWordsByReduce(words){
         return acc;
     }
     
-    acc.push(word[0].toUpperCase() + word.slice(1));
+    acc.push(word[0].toUpperCase() + word.slice(1).toLowerCase());
     
     return acc; 
   }, []);
