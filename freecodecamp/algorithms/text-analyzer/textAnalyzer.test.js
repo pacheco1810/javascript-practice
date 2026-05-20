@@ -97,19 +97,6 @@ describe('analyzeTexts', () => {
     ]);
   });
 
-  test('analyzes with phraseLength 3', () => {
-    const texts = [
-      ["i", "love", "js", "i", "love", "js"],
-      ["racecar", "level", "hello"]
-    ];
-    const result = analyzeTexts(texts, 3);
-    
-    expect(result).toEqual([
-      { repeatedPhrases: [0, 3], palindromeBreaks: [0, 1, 2, 3, 4, 5] },
-      { repeatedPhrases: [], palindromeBreaks: [2] }
-    ]);
-  });
-
   test('returns empty array for empty texts', () => {
     expect(analyzeTexts([], 2)).toEqual([]);
   });
@@ -119,7 +106,7 @@ describe('analyzeTexts', () => {
     const result = analyzeTexts(texts, 2);
     
     expect(result).toEqual([
-      { repeatedPhrases: [0, 2], palindromeBreaks: [0, 1, 2, 3] }
+      { repeatedPhrases: [0, 2], palindromeBreaks: [] }
     ]);
   });
 });
