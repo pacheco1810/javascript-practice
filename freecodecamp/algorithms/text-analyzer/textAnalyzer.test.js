@@ -89,7 +89,7 @@ describe('analyzeTexts', () => {
       ["i", "love", "js", "i", "love", "js"],
       ["racecar", "level", "hello"]
     ];
-    const result = analyzeTexts(texts, 2);
+    const result = analyzeTexts(texts, 3);
     
     expect(result).toEqual([
       { repeatedPhrases: [0, 3], palindromeBreaks: [1, 2, 4, 5] },
