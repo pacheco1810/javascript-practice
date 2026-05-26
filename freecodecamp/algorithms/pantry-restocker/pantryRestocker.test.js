@@ -126,7 +126,7 @@ describe('groupByZone', () => {
     ];
     const result = groupByZone(actions);
     
-    expect(result.general).toBeDefined();
+    expect(result.general).toBeDefined(undefined);
     expect(result.general.length).toBe(1);
   });
 });

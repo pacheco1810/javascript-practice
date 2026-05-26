@@ -62,8 +62,9 @@ function planRestock(pantry, shipment){
 function groupByZone(actions){
   return actions.reduce((acc, action) => {
     const {item} = action;
-    acc[item.zone] ??= [];
-    acc[item.zone].push(action)
+    const zone = item.zone ?? "general";
+    acc[zone] ??= [];
+    acc[zone].push(action);
     return acc;
   }, {});
 }
