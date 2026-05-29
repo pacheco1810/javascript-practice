@@ -35,17 +35,17 @@ describe('getMostFrequentChar', () => {
 describe('getLeastFrequentChar', () => {
   test('returns ["h","e","o","w","r","d"] for "hello world"', () => {
     const result = getLeastFrequentChar("hello world");
-    expect(result).toEqual(["h", "e", "o", "w", "r", "d"]);
+    expect(result).toEqual(["h", "e", "w", "r", "d"]);
   });
 
   test('ignores non-letter characters', () => {
     const result = getLeastFrequentChar("hello, world!");
-    expect(result).toEqual(["h", "e", "o", "w", "r", "d"]);
+    expect(result).toEqual(["h", "e", "w", "r", "d"]);
   });
 
   test('handles case sensitivity', () => {
     const result = getLeastFrequentChar("Hello World");
-    expect(result).toEqual(["H", "e", "o", "W", "r", "d"]);
+    expect(result).toEqual(["H", "e", "W", "r", "d"]);
   });
 
   test('returns single char when one is least frequent', () => {
